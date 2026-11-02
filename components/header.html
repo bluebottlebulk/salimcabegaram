@@ -1,35 +1,35 @@
-<!-- Desktop Navigation Links -->
-    <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
-        <a href="/#layanan" class="text-[#64748B] hover:text-[#0F766E] transition-colors">Layanan</a>
-        <a href="/#alur" class="text-[#64748B] hover:text-[#0F766E] transition-colors">Alur Kerja</a>
-        <a href="/#keunggulan" class="text-[#64748B] hover:text-[#0F766E] transition-colors">Keunggulan</a>
-        <a href="/#kontak" class="text-[#64748B] hover:text-[#0F766E] transition-colors">Kontak</a>
-    </nav>
-
-    <!-- CTA Button -->
-    <div class="hidden md:flex items-center gap-4">
-        <a href="https://wa.me/6280000000000?text=Halo%20Karsalena%20Works,%20saya%20ingin%20konsultasi%20perangkat" target="_blank" rel="noopener noreferrer" class="bg-[#0F766E] hover:bg-[#115E59] text-white px-5 py-2.5 rounded-xl font-medium text-sm shadow-sm shadow-[#0F766E]/20 hover:shadow-md transition-all flex items-center gap-2">
-            <i data-lucide="message-square" class="w-4 h-4"></i>
-            Konsultasi
+<header class="sticky top-0 z-50 bg-sand-50/90 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 group">
+            <div class="w-9 h-9 rounded-lg bg-sage-800 text-white flex items-center justify-center font-display font-bold text-lg group-hover:bg-sage-600 transition">
+                W
+            </div>
+            <div class="flex flex-col">
+                <span class="font-display font-bold text-slate-900 leading-none tracking-tight">Karsalena <span class="text-sage-600">Works</span></span>
+                <span class="text-[10px] text-slate-500 font-medium tracking-wider uppercase mt-0.5">Hardware Craft</span>
+            </div>
         </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+            <a href="#layanan" class="hover:text-sage-600 transition">Layanan</a>
+            <a href="#alur" class="hover:text-sage-600 transition">Alur Kerja</a>
+            <a href="https://lab.karsalana.my.id" class="hover:text-sage-600 transition">Karsalena Lab ↗</a>
+            <a href="#booking" class="px-4 py-2 rounded-lg bg-sage-800 text-white hover:bg-sage-900 transition">Konsultasi</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-sand-100" aria-label="Toggle Menu">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
     </div>
 
-    <!-- Mobile Menu Button -->
-    <button id="menu-btn" class="md:hidden p-2 rounded-xl text-[#1E293B] hover:bg-[#E2E8F0]/50 transition-colors focus:outline-none" aria-label="Toggle Menu">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-    </button>
-</div>
-
-<!-- Mobile Navigation Drawer -->
-<div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-[#E2E8F0] shadow-lg px-6 py-6 space-y-4">
-    <a href="/#layanan" class="block text-base font-medium text-[#1E293B] hover:text-[#0F766E] py-1 mobile-link">Layanan</a>
-    <a href="/#alur" class="block text-base font-medium text-[#1E293B] hover:text-[#0F766E] py-1 mobile-link">Alur Kerja</a>
-    <a href="/#keunggulan" class="block text-base font-medium text-[#1E293B] hover:text-[#0F766E] py-1 mobile-link">Keunggulan</a>
-    <a href="/#kontak" class="block text-base font-medium text-[#1E293B] hover:text-[#0F766E] py-1 mobile-link">Kontak</a>
-    <div class="pt-4 border-t border-[#E2E8F0]">
-        <a href="https://wa.me/6280000000000?text=Halo%20Karsalena%20Works,%20saya%20ingin%20konsultasi%20perangkat" target="_blank" rel="noopener noreferrer" class="w-full bg-[#0F766E] text-white px-5 py-3 rounded-xl font-medium text-center shadow-sm flex items-center justify-center gap-2">
-            <i data-lucide="message-square" class="w-4 h-4"></i>
-            Konsultasi via WhatsApp
-        </a>
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2">
+        <a href="#layanan" class="block py-2 text-sm font-medium text-slate-700 hover:text-sage-600">Layanan</a>
+        <a href="#alur" class="block py-2 text-sm font-medium text-slate-700 hover:text-sage-600">Alur Kerja</a>
+        <a href="https://lab.karsalana.my.id" class="block py-2 text-sm font-medium text-slate-700 hover:text-sage-600">Karsalena Lab ↗</a>
+        <a href="#booking" class="block mt-2 text-center py-2.5 rounded-lg bg-sage-800 text-white text-sm font-semibold">Konsultasi Sekarang</a>
     </div>
-</div>
+</header>
