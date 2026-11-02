@@ -1,56 +1,36 @@
-/* ==========================================================================
-Component Loader Script
-Memuat header dan footer secara dinamis agar konsisten di seluruh halaman
-========================================================================== */
-
-document.addEventListener("DOMContentLoaded", function () {
-// Load Header
-fetch('/components/header.html')
-.then(response => response.text())
-.then(data => {
-const headerPlaceholder = document.getElementById('site-header');
-if (headerPlaceholder) {
-headerPlaceholder.innerHTML = data;
-// Re-initialize Lucide icons for injected header content
-if (typeof lucide !== 'undefined') {
-lucide.createIcons();
-}
-initMobileMenu();
-}
-});
-
-// Load Footer
-fetch('/components/footer.html')
-    .then(response => response.text())
-    .then(data => {
-        const footerPlaceholder = document.getElementById('site-footer');
-        if (footerPlaceholder) {
-            footerPlaceholder.innerHTML = data;
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
+document.addEventListener("DOMContentLoaded", async () => {
+    const loadComponent = async (selector, filePath) => {
+        const element = document.querySelector(selector);
+        if (!element) return;
+        try {
+            const response = await fetch(filePath);
+            if (response.ok) {
+                element.innerHTML = await response.text();
+            } else {
+                console.error(`Gagal memuat ${filePath}: ${response.status}`);
             }
+        } catch (error) {
+            console.error(`Error saat mengambil komponen ${filePath}:`, error);
         }
-    });
+    };
 
+    // Muat Header dan Footer secara paralel
+    await Promise.all([
+        loadComponent("#header-placeholder", "components/header.html"),
+        loadComponent("#footer-placeholder", "components/footer.html")
+    ]);
 
-});
+    // Inisialisasi ulang Lucide Icons setelah komponen masuk ke DOM
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
 
-function initMobileMenu() {
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-link');
-
-if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+    // Aktifkan fungsi tombol menu mobile
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
         });
-    });
-}
-
-
-}
+    }
+});
